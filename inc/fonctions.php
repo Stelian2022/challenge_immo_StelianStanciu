@@ -39,9 +39,9 @@ function textData($valeur)
 
 function isGetIdValid(): bool
 {
-   if (isset($_GET['id']) && is_numeric($_GET['id'])):
+   if (isset($_GET['id']) && is_numeric($_GET['id'])) :
       return true;
-   else:
+   else :
       return false;
    endif;
 }
@@ -81,7 +81,7 @@ function suppAnnonceById(int $idAnnonce): bool
    return $resultat->execute();
 }
 
-function insertAnnonce(string $title,string $description, string $type, int $price, int $surface, int $room, string $image, int $user_id): int
+function insertAnnonce(string $title, string $description, string $type, string $price, string $surface, string $room, string $image, int $user_id): int
 {
    require 'pdo.php';
    $requete = 'INSERT INTO annonce (title,description,type,price,surface,room,image,user_id) VALUES (:title, :description, :type, :price, :surface, :room, :image, :user_id)';
@@ -98,13 +98,13 @@ function insertAnnonce(string $title,string $description, string $type, int $pri
    return $conn->lastInsertId();
 }
 
-function updateAnnonce(int $id_annonce,string $title,string $description,string $type, int $price, int $surface, int $room, string $image): bool
+function updateAnnonce(int $id_annonce, string $title, string $description, string $type, int $price, int $surface, int $room, string $image): bool
 {
    require 'pdo.php';
 
-   if ($image):
+   if ($image) :
       $requete = 'UPDATE annonce SET title = :title, type = :type,price = :price, surface= :surface, room = :room, image = :image WHERE id_annonce = :id_annonce';
-   else:
+   else :
       $requete = 'UPDATE annonce SET title = :title, description = :decription WHERE id_annonce = :id_annonce';
    endif;
 
@@ -112,11 +112,11 @@ function updateAnnonce(int $id_annonce,string $title,string $description,string 
    $resultat->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
    $resultat->bindValue(':title', $title, PDO::PARAM_STR);
    $resultat->bindValue(':description', $description, PDO::PARAM_STR);
-   
-   if ($image):
+
+   if ($image) :
       $resultat->bindValue(':image', $image, PDO::PARAM_STR);
    endif;
-   
+
    $resultat->execute();
    return $resultat->execute();
 }
@@ -141,7 +141,7 @@ function findEmail(string $email): array|bool
    return $resultat->fetch();
 }
 
-function insertUser(string $first_name,string $last_name, string $email, string $password,string $adress,string $town,string $postal_code,string $phone,string $role): int
+function insertUser(string $first_name, string $last_name, string $email, string $password, string $adress, string $town, string $postal_code, string $phone, string $role): int
 {
    require 'pdo.php';
    $passwordHashe = password_hash($password, PASSWORD_DEFAULT);
@@ -156,7 +156,6 @@ function insertUser(string $first_name,string $last_name, string $email, string 
    $resultat->bindValue(':town', $town, PDO::PARAM_STR);
    $resultat->bindValue(':postal_code', $postal_code, PDO::PARAM_STR);
    $resultat->bindValue(':phone', $phone, PDO::PARAM_STR);
-   
    $resultat->bindValue(':role', $role, PDO::PARAM_STR);
    $resultat->execute();
    return $conn->lastInsertId();
@@ -181,8 +180,8 @@ function error404(): void
 
 function redirectUrl(string $path = ''): void
 {
-   $homeUrl = 'http://' . $_SERVER['HTTP_HOST']. '/challenge_immo_StelianStanciu' ;
-   $homeUrl .= '/'. $path;
+   $homeUrl = 'http://' . $_SERVER['HTTP_HOST'] . '/challenge_immo_StelianStanciu';
+   $homeUrl .= '/' . $path;
    header("Location: {$homeUrl}");
    exit();
 }

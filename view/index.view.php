@@ -20,14 +20,14 @@
             <h1>IMMOBELLIER</h1>
             <p>
                 <?php if (isUserLogin()) : ?>
-            <a href="./adminImmo" role="button">Admin</a>
-            <a href="./adminImmo/ajout.php" role="button">Ajouter un annonce</a> 
-            <a href="./login/deconnexion.php" role="button">Se déconnecter</a>
-        <?php else : ?>
-            <a href="./login/" role="button">Se connecter</a>
-            <a href="./register/" role="button">S'enregistrer</a>
-        <?php endif ?>
-        </p>
+                    <a href="./adminImmo" role="button">Admin</a>
+                    <a href="./adminImmo/ajout.php" role="button">Ajouter un annonce</a>
+                    <a href="./login/deconnexion.php" role="button">Se déconnecter</a>
+                <?php else : ?>
+                    <a href="./login/" role="button">Se connecter</a>
+                    <a href="./register/" role="button">S'enregistrer</a>
+                <?php endif ?>
+            </p>
         </header>
         <section>
             <?php
@@ -41,8 +41,8 @@
                         <p><?= $article['description'] ?></p>
                         <p><?= $article['surface']  ?></p>
                         <p><?= $article['room']  ?></p>
-                       
-                     
+
+
                     </article>
             <?php
                 endforeach;

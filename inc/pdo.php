@@ -3,8 +3,8 @@
 * Connexion à la base de donnée
 */
 $dsn = 'mysql:host=localhost;dbname=immobellier';
-$useDbName = 'stelian';
-$userDbPassword = '123456';
+$useDbName = 'root';
+$userDbPassword = '';
 
 try {
     $conn = new PDO(

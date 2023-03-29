@@ -40,10 +40,10 @@
                 <label for="phone">Téléphone *</label>
                 <input type="text" name="phone" id="phone" value="<?= $phone ?>">
             </div>
-            
+
             <div>
                 <label for="role"></label>
-                User <input type="radio" name="role" id="role" value="user" checked> 
+                User <input type="radio" name="role" id="role" value="user" checked>
                 Admin <input type="radio" name="role" id="role" value="admin">
             </div>
             <div>

@@ -29,11 +29,11 @@
                 <?php endif ?>
             </p>
         </header>
-        <section>
+        <section class="immo">
             <?php
             if (count(getAnnonceLimit($limit, $offset)) != 0) :
                 foreach (getAnnonceLimit($limit, $offset) as $article) : ?>
-                    <article>
+                    <article class="annonce">
                         <h4><?= $article['title'] ?></h4>
                         <p><?= $article['type'] ?></p>
                         <?php if ($article['image'] != null) : ?>

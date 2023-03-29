@@ -22,6 +22,33 @@
                 <textarea name="description" id="description"><?= $descriptionDb ?></textarea>
             </div>
             <div>
+                <label for="type">Type d'annonce :</label>
+                <select name="type" id="type" value="<?= $typeDb ?>">
+                    <option value="vente">Vente</option>
+                    <option value="location">Location</option>
+                </select>
+            </div><br><br>
+            <div>
+                <label for="price">Prix :</label>
+                <input type="text" name="price" id="price" value="<?= $priceDb ?>">
+            </div><br><br>
+            <div>
+                <label for="room">Nombre de pièces :</label>
+                <select name="room" id="room" value="<?= $roomDb ?>">
+                    <option value="1">1 pièce</option>
+                    <option value="2">2 pièces</option>
+                    <option value="3">3 pièces</option>
+                    <option value="4">4 pièces</option>
+                    <option value="5">5 pièces</option>
+                </select>
+            </div><br>
+            <div>
+                <label for="surface">Surface :</label>
+                <input type="text" name="surface" id="surface" value="<?= $surfaceDb ?>">
+            </div><br><br>
+
+            <div>
+            <div>
             <label for="image">Image</label>
                 <input type="file" name="image" id="image">
             </div>

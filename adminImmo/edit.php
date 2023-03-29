@@ -1,17 +1,19 @@
 <?php
 /*
-* Mise à jour d'un article
+* Mise à jour d'un annonce
 */
 include '../inc/fonctions.php';
 
-(isGetIdValid()) ? $id = $_GET['id'] : error404();
+(isGetIdValid()) ? $id_annonce = $_GET['id'] : error404();
 
-$titleDb = getAnnonceById($id)['title'];
-$descriptionDb = getAnnonceById($id)['description'];
-$typeDb = getAnnonceById($id)['type'];
-$priceDb = getAnnonceById($id)['price'];
-$surfaceDb = getAnnonceById($id)['surface'];
-$roomDb = getAnnonceById($id)['room'];
+$titleDb = getAnnonceById($id_annonce)['title'];
+$descriptionDb = getAnnonceById($id_annonce)['description'];
+$surfaceDb = getAnnonceById($id_annonce)['surface'];
+ $typeDb = getAnnonceById($id_annonce)['type'];
+ $roomDb = getAnnonceById($id_annonce)['room'];
+ $priceDb = getAnnonceById($id_annonce)['price'];
+
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $imageName = $_FILES['image']['name'];
@@ -34,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $title = cleanData($_POST['title']);
     $image = "./uploads/" . $imageName;
     $description = cleanData($_POST['description']);
-    $type = cleanData($_POST['type']);
-    $room = cleanData($_POST['room']);
     $surface = cleanData($_POST['surface']);
+     $type = cleanData($_POST['type']);
     $price = cleanData($_POST['price']);
+     $room = cleanData($_POST['room']);
 
 
 
-    updateAnnonce($id_annonce, $type, $title, $description, $room, $surface, $price, $image);
+    updateAnnonce($id_annonce, $title, $description, $surface,$type,$price,$room, $image);
 
     header('Location: ./index.php');
     exit();

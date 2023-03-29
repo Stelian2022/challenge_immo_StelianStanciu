@@ -81,10 +81,34 @@ function suppAnnonceById(int $idAnnonce): bool
    return $resultat->execute();
 }
 
-function insertAnnonce(string $title, string $description, string $type, string $price, string $surface, string $room, string $image, int $user_id): int
+function insertAnnonce(
+   string $title, 
+   string $description, 
+   string $type, 
+   string $price, 
+   string $surface, 
+   string $room, 
+   string $image, 
+   int $user_id): int
 {
    require 'pdo.php';
-   $requete = 'INSERT INTO annonce (title,description,type,price,surface,room,image,user_id) VALUES (:title, :description, :type, :price, :surface, :room, :image, :user_id)';
+   $requete = 'INSERT INTO annonce (
+   title,
+   description,
+   type,
+   price,
+   surface,
+   room,
+   image,
+   user_id) VALUES (
+      :title, 
+      :description, 
+      :type, 
+      :price, 
+      :surface, 
+      :room, 
+      :image, 
+      :user_id)';
    $resultat = $conn->prepare($requete);
    $resultat->bindValue(':title', $title, PDO::PARAM_STR);
    $resultat->bindValue(':description', $description, PDO::PARAM_STR);
@@ -141,15 +165,42 @@ function findEmail(string $email): array|bool
    return $resultat->fetch();
 }
 
-function insertUser(string $first_name, string $last_name, string $email, string $password, string $adress, string $town, string $postal_code, string $phone, string $role): int
+function insertUser(
+string $first_name,
+ string $last_name,
+  string $email,
+   string $password,
+    string $adress,
+     string $town, 
+      string $postal_code,
+       string $phone,
+        string $role): int
 {
    require 'pdo.php';
    $passwordHashe = password_hash($password, PASSWORD_DEFAULT);
 
-   $requete = 'INSERT INTO user (first_name,last_name,email,password,adress,town,postal_code,phone,role) VALUES (:first_name, :last_name, :email, :password, :adress, :town, :postal_code, :phone, :role)';
+   $requete = 'INSERT INTO user (
+   first_name,
+   last_name,
+   email,
+   password,
+   adress,
+   town,
+   postal_code,
+   phone,
+   role) VALUES (
+      :first_name, 
+      :last_name, 
+      :email, 
+      :password, 
+      :adress, 
+      :town, 
+      :postal_code, 
+      :phone, 
+      :role)';
    $resultat = $conn->prepare($requete);
    $resultat->bindValue(':first_name', $first_name, PDO::PARAM_STR);
-   $resultat->bindValue(':last-name', $last_name, PDO::PARAM_STR);
+   $resultat->bindValue(':last_name', $last_name, PDO::PARAM_STR);
    $resultat->bindValue(':email', $email, PDO::PARAM_STR);
    $resultat->bindValue(':password', $passwordHashe, PDO::PARAM_STR);
    $resultat->bindValue(':adress', $adress, PDO::PARAM_STR);

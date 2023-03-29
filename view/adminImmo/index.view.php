@@ -45,7 +45,7 @@
                   <td><?= $value['description']?></td>
                   <td><?= $value['surface'] ?></td>
                   <td><?= $value['room'] ?></td>
-                  <td><?= $value['prix'] ?></td>
+                  <td><?= $value['price'] ?></td>
                   <td>
                      <a href="./edit.php?id=<?= $value['id_annonce'] ?>" role="button">Edit</a>
                      <a href="./supp.php?id=<?= $value['id_annonce'] ?>" role="button" onclick="return confirm('Confirmer la suppression de cet annonce ?');">Supprimer</a>

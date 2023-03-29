@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 29 mars 2023 à 12:13
+-- Généré le : mer. 29 mars 2023 à 13:27
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -28,6 +28,9 @@ USE `immobellier`;
 --
 -- Structure de la table `annonce`
 --
+-- Création : mer. 29 mars 2023 à 11:17
+-- Dernière modification : mer. 29 mars 2023 à 11:17
+--
 
 CREATE TABLE `annonce` (
   `id_annonce` int(11) NOT NULL,
@@ -35,10 +38,11 @@ CREATE TABLE `annonce` (
   `description` text DEFAULT NULL,
   `image` varchar(500) DEFAULT NULL,
   `type` varchar(255) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` decimal(11,0) DEFAULT NULL,
   `surface` int(11) DEFAULT NULL,
   `room` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
   `modified_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -46,6 +50,9 @@ CREATE TABLE `annonce` (
 
 --
 -- Structure de la table `user`
+--
+-- Création : mer. 29 mars 2023 à 09:38
+-- Dernière modification : mer. 29 mars 2023 à 11:05
 --
 
 CREATE TABLE `user` (
@@ -61,6 +68,13 @@ CREATE TABLE `user` (
   `role` varchar(255) NOT NULL DEFAULT 'user',
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id_user`, `first_name`, `last_name`, `email`, `password`, `town`, `adress`, `postal_code`, `phone`, `role`, `created_at`) VALUES
+(1, 'Stelian-Constantin', 'Stanciu', 'stanciu.stelian86@yahoo.fr', '$2y$10$Mco2lPq6ouCwFc9knOdl7OlsXJt/8qzxi0jWhW4FdwzMhF7R33o3C', '', 'Pavilly', 0, 606060606, 'admin', '0000-00-00 00:00:00');
 
 --
 -- Index pour les tables déchargées
@@ -87,13 +101,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `annonce`
 --
 ALTER TABLE `annonce`
-  MODIFY `id_annonce` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_annonce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

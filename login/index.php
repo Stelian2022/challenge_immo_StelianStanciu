@@ -9,16 +9,16 @@ $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $email = cleanData($_POST['email']);
-    $pwd = cleanData($_POST['pwd']);
+    $pwd = cleanData($_POST['password']);
 
     if ($email) :
         if (findEmail($email)) :
-            if (password_verify($pwd, findEmail($email)['pwd'])) :
+            if (password_verify($pwd, findEmail($email)['password'])) :
                 $_SESSION['login'] = findEmail($email)['role'];
-                $_SESSION['id_utilisateur'] = findEmail($email)['id_utilisateur'];
+                $_SESSION['id_user'] = findEmail($email)['id_user'];
 
                 if (findEmail($email)['role'] === 'admin') :
-                   redirectUrl('adminBlog/');
+                   redirectUrl('adminImmo/');
                 endif;
 
                 redirectUrl();

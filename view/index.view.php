@@ -20,8 +20,8 @@
             <h1>IMMOBELLIER</h1>
             <p>
                 <?php if (isUserLogin()) : ?>
-            <a href="./adminBlog" role="button">Admin</a>
-            <a href="./adminBlog/ajout.php" role="button">Ajouter un article</a> 
+            <a href="./adminImmo" role="button">Admin</a>
+            <a href="./adminImmo/ajout.php" role="button">Ajouter un annonce</a> 
             <a href="./login/deconnexion.php" role="button">Se déconnecter</a>
         <?php else : ?>
             <a href="./login/" role="button">Se connecter</a>
@@ -34,13 +34,15 @@
             if (count(getAnnonceLimit($limit, $offset)) != 0) :
                 foreach (getAnnonceLimit($limit, $offset) as $article) : ?>
                     <article>
-                        <h4><?= $article['titre'] ?></h4>
-                        <p><?= $article['created_at'] ?></p>
-                        <p>Ecrit par <?= $article['nom']  ?> <?= $article['prenom']  ?> </p>
+                        <h4><?= $article['title'] ?></h4>
                         <?php if ($article['image'] != null) : ?>
                             <p><img src="<?= $article['image'] ?>"></p>
                         <?php endif; ?>
-                        <p><?= $article['contenu'] ?></p>
+                        <p><?= $article['description'] ?></p>
+                        <p><?= $article['surface']  ?></p>
+                        <p><?= $article['room']  ?></p>
+                       
+                     
                     </article>
             <?php
                 endforeach;

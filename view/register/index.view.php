@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../assets/css/pico.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
@@ -14,12 +13,12 @@
         <h1>Enregistrer un nouvel utilisateur</h1>
         <form method="POST" class="form">
             <div>
-                <label for="prenom">Prenom *</label>
-                <input type="prenom" name="prenom" id="prenom" value="<?= $prenom ?>">
+                <label for="first_name">Prenom *</label>
+                <input type="text" name="first_name" id="first_name" value="<?= $first_name ?>">
             </div>
             <div>
-                <label for="nom">Nom *</label>
-                <input type="nom" name="nom" id="nom" value="<?= $nom ?>">
+                <label for="last_name">Nom *</label>
+                <input type="text" name="last_name" id="last_name" value="<?= $last_name ?>">
             </div>
             <div>
                 <label for="email">Email *</label>

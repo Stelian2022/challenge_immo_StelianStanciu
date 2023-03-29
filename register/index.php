@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $phone = cleanData($_POST['phone']);
     $role = cleanData($_POST['role']);
 
-    if ($email && $pwd) :
+    if ($email && $password) :
         if (findEmail($email)) :
             $errors = 'Veuiller choisir une autre adreese email !';
         else :

@@ -29,6 +29,19 @@
                 <input type="password" name="password" id="password" required value="<?= $password ?>">
             </div>
             <div>
+                <label for="town">Ville *</label>
+                <input type="text" name="town" id="town" value="<?= $town ?>">
+            </div>
+            <div>
+                <label for="adress">Adresse *</label>
+                <input type="text" name="adress" id="adress" value="<?= $adress ?>">
+            </div>
+            <div>
+                <label for="phone">Téléphone *</label>
+                <input type="text" name="phone" id="phone" value="<?= $phone ?>">
+            </div>
+            
+            <div>
                 <label for="role">Role</label>
                 Redacteur <input type="radio" name="role" id="role" value="user" checked> 
                 Admin <input type="radio" name="role" id="role" value="admin">

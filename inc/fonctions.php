@@ -98,7 +98,7 @@ function insertAnnonce(string $title,string $description, string $type, int $pri
    return $conn->lastInsertId();
 }
 
-function updateAnnonce(int $id_annonce,string $type, int $price, int $surface, int $room, string $image): bool
+function updateAnnonce(int $id_annonce,string $title,string $description,string $type, int $price, int $surface, int $room, string $image): bool
 {
    require 'pdo.php';
 

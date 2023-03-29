@@ -5,7 +5,6 @@
 session_start();
 include '../inc/fonctions.php';
 
-(isUserLogin()) ?: redirectUrl('view/404.php');
 $title = $type= $description = $price = $surface = $room = $image = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $imageName = $_FILES['image']['name'];
@@ -26,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     }
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     $title = cleanData($_POST['title']);
+    $type = cleanData($_POST['type']);
     $image = "./uploads/" . $imageName;
     $description = cleanData($_POST['description']);
     $room = cleanData($_POST['room']);

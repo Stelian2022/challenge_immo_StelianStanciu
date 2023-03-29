@@ -65,7 +65,7 @@ function getAnnonceLimit(int $limit, int $offset): array
 function getAnnonceById(int $idAnnonce): array
 {
    require 'pdo.php';
-   $sqlRequest = "SELECT * FROM annone WHERE id_annone = :idAnnonce";
+   $sqlRequest = "SELECT * FROM annonce WHERE id_annonce = :idAnnonce";
    $resultat = $conn->prepare($sqlRequest);
    $resultat->bindValue(':idAnnonce', $idAnnonce, PDO::PARAM_INT);
    $resultat->execute();
@@ -127,16 +127,33 @@ function updateAnnonce(int $id_annonce, string $title, string $description, stri
    require 'pdo.php';
 
    if ($image) :
-      $requete = 'UPDATE annonce SET title = :title, type = :type,price = :price, surface= :surface, room = :room, image = :image WHERE id_annonce = :id_annonce';
+      $requete = 'UPDATE annonce SET 
+      title = :title, 
+      type = :type,
+      description = :description,
+      price = :price, 
+      surface= :surface, 
+      room = :room, 
+      image = :image 
+      WHERE id_annonce = :id_annonce';
    else :
-      $requete = 'UPDATE annonce SET title = :title, description = :decription WHERE id_annonce = :id_annonce';
+      $requete = 'UPDATE annonce SET 
+      title = :title, 
+      type = :type,
+      description = :description,
+      price = :price, 
+      surface= :surface, 
+      room = :room  WHERE id_annonce = :id_annonce';
    endif;
 
    $resultat = $conn->prepare($requete);
    $resultat->bindValue(':id_annonce', $id_annonce, PDO::PARAM_INT);
    $resultat->bindValue(':title', $title, PDO::PARAM_STR);
    $resultat->bindValue(':description', $description, PDO::PARAM_STR);
-
+   $resultat->bindValue(':type', $type, PDO::PARAM_STR);
+   $resultat->bindValue(':price', $price, PDO::PARAM_STR);
+    $resultat->bindValue(':surface', $surface, PDO::PARAM_STR);
+    $resultat->bindValue(':room', $room, PDO::PARAM_STR);
    if ($image) :
       $resultat->bindValue(':image', $image, PDO::PARAM_STR);
    endif;

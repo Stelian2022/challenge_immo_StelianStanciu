@@ -35,13 +35,14 @@
                 foreach (getAnnonceLimit($limit, $offset) as $article) : ?>
                     <article>
                         <h4><?= $article['title'] ?></h4>
+                        <p><?= $article['type'] ?></p>
                         <?php if ($article['image'] != null) : ?>
                             <p><img src="<?= $article['image'] ?>"></p>
                         <?php endif; ?>
                         <p><?= $article['description'] ?></p>
-                        <p><?= $article['surface']  ?></p>
-                        <p><?= $article['room']  ?></p>
-
+                        <p>Surface : <?= $article['surface']  ?> m²</p>
+                        <p>Nombre de pieces : <?= $article['room']  ?></p>
+                         <p>Prix : <?= $article['price']  ?> $ , honoraires à la charge du vendeur.</p>
 
                     </article>
             <?php

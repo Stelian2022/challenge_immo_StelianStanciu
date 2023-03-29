@@ -8,20 +8,17 @@ include '../inc/fonctions.php';
 
 $titleDb = getAnnonceById($id)['title'];
 $descriptionDb = getAnnonceById($id)['description'];
+$typeDb = getAnnonceById($id)['type'];
+$priceDb = getAnnonceById($id)['price'];
+$surfaceDb = getAnnonceById($id)['surface'];
+$roomDb = getAnnonceById($id)['room'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $imageName = $_FILES['image']['name'];
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($imageName);
 
-    // Allow certain file formats
-    if (
-        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif"
-    ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-        $uploadOk = 0;
-    }
+  
 
     // Check file size
     if ($_FILES["image"]["size"] > 500000) {

@@ -41,7 +41,8 @@
             <?php foreach (getAnnonceLimit($limit, $offset) as $key => $value) : ?>
                <tr>
                   <!-- <td><?//= $value['id_annonce'] ?></td> -->
-                  <td><?= $value['title'] ?></td>
+                  <td><?= $value['title'] ?><br></td>
+            
                   <td><?= $value['description']?></td>
                   <td><?= $value['surface'] ?></td>
                   <td><?= $value['room'] ?></td>

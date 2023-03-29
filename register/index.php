@@ -6,7 +6,7 @@ session_start();
 
 require '../inc/fonctions.php';
 
-$first_name = $last_name = $email = $paswword = $town = $adress = $postal_code  = $phone  = $errors = '';
+$first_name = $last_name = $email = $password = $town = $adress = $postal_code  = $phone  = $errors = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
 

@@ -30,8 +30,8 @@
                <th>Title</th>
                <th>Description</th>
                <th>Surface</th>
-               <th>room</th>
-               <th>prix</th>
+               <th>Pieces</th>
+               <th>Prix</th>
                <th>Actions</th>
              
             </tr>

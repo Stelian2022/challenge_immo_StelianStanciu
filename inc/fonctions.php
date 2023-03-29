@@ -146,7 +146,7 @@ function insertUser(string $first_name,string $last_name, string $email, string 
    require 'pdo.php';
    $passwordHashe = password_hash($password, PASSWORD_DEFAULT);
 
-   $requete = 'INSERT INTO user (first_name,last_name,email,password,adress,town,ostal_code,phone) VALUES (:first_name, :last_name, :email, :password, :adress, :town, :postal_code, :phone, :role)';
+   $requete = 'INSERT INTO user (first_name,last_name,email,password,adress,town,postal_code,phone,role) VALUES (:first_name, :last_name, :email, :password, :adress, :town, :postal_code, :phone, :role)';
    $resultat = $conn->prepare($requete);
    $resultat->bindValue(':first_name', $first_name, PDO::PARAM_STR);
    $resultat->bindValue(':last-name', $last_name, PDO::PARAM_STR);
@@ -181,7 +181,7 @@ function error404(): void
 
 function redirectUrl(string $path = ''): void
 {
-   $homeUrl = 'http://' . $_SERVER['HTTP_HOST']. '/challange_immo_StelianStanciu' ;
+   $homeUrl = 'http://' . $_SERVER['HTTP_HOST']. '/challenge_immo_StelianStanciu' ;
    $homeUrl .= '/'. $path;
    header("Location: {$homeUrl}");
    exit();

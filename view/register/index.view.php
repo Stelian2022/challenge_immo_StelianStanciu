@@ -42,8 +42,8 @@
             </div>
             
             <div>
-                <label for="role">Role</label>
-                Redacteur <input type="radio" name="role" id="role" value="user" checked> 
+                <label for="role"></label>
+                User <input type="radio" name="role" id="role" value="user" checked> 
                 Admin <input type="radio" name="role" id="role" value="admin">
             </div>
             <div>

@@ -5,7 +5,7 @@
 session_start();
 include '../inc/fonctions.php';
 
-(isUserLogin()) ?: redirectUrl('view/404.php');
+
 $title = $description = $type = $price = $surface = $room = $image = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $imageName = $_FILES['image']['name'];
@@ -34,7 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     $title = cleanData($_POST['title']);
     $image = "./uploads/" . $imageName;
-    $contenu = cleanData($_POST['contenu']);
+    $description = cleanData($_POST['description']);
+    $type = cleanData($_POST['type']);
+    $room = cleanData($_POST['room']);
+    $surface = cleanData($_POST['surface']);
+    $price = cleanData($_POST['price']);
 
     insertAnnonce($title, $description, $type, $price, $surface, $room, $image, $_SESSION['id_user']);
 
@@ -54,4 +58,4 @@ endif;
 
 
 
-require '../view/adminBlog/ajout.view.php';
+require '../view/adminImmo/ajout.view.php';

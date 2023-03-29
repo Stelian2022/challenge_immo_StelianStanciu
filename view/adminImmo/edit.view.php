@@ -14,11 +14,11 @@
         <h1>Mise à jour d'un annonce</h1>
         <form method="POST" class="form" enctype="multipart/form-data">
             <div>
-                <label for="title">title</label>
+                <label for="title">Title</label>
                 <input type="text" name="title" id="title" value="<?= $titleDb ?>">
             </div>
             <div>
-                <label for="description">Contenu article</label>
+                <label for="description">Description annonce</label>
                 <textarea name="description" id="description"><?= $descriptionDb ?></textarea>
             </div>
             <div>

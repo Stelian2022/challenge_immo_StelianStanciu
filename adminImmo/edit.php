@@ -3,11 +3,11 @@
 * Mise à jour d'un article
 */
 include '../inc/fonctions.php';
-(isAdminLogin()) ?: redirectUrl('view/404.php');
+
 (isGetIdValid()) ? $id = $_GET['id'] : error404();
 
 $titleDb = getAnnonceById($id)['title'];
-$contenuDb = getAnnonceById($id)['description'];
+$descriptionDb = getAnnonceById($id)['description'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $imageName = $_FILES['image']['name'];
@@ -34,9 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
         $uploadOk = 0;
     }
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-    $titre = cleanData($_POST['titre']);
+    $title = cleanData($_POST['title']);
     $image = "./uploads/" . $imageName;
-    $contenu = cleanData($_POST['contenu']);
+    $description = cleanData($_POST['description']);
+    $type = cleanData($_POST['type']);
+    $room = cleanData($_POST['room']);
+    $surface = cleanData($_POST['surface']);
+    $price = cleanData($_POST['price']);
 
 
 
@@ -46,4 +50,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     exit();
 endif;
 
-require '../view/adminBlog/edit.view.php';
+require '../view/adminImmo/edit.view.php';

@@ -11,9 +11,9 @@
 <body>
     <main class="container">
         <h1>Ajout d'un annonce</h1>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" class="form" enctype="multipart/form-data">
             <div>
-                <label for="title">Titre annonce</label>
+                <label for="title">Title annonce</label>
                 <input type="text" name="title" id="title" value="<?= $title ?>">
             </div>
             <div>
@@ -43,7 +43,7 @@
                 </select>
             </div><br>
             <div>
-                <label for="description">Contenu annonce</label>
+                <label for="description">Desciption annonce</label>
                 <textarea name="description" id="description"><?= $description ?></textarea>
             </div>
             <label for="image">Télécharger une image du bien immobilier :</label>

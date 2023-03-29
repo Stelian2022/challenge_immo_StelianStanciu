@@ -42,7 +42,7 @@
                         <p><?= $article['description'] ?></p>
                         <p>Surface : <?= $article['surface']  ?> m²</p>
                         <p>Nombre de pieces : <?= $article['room']  ?></p>
-                         <p>Prix : <?= $article['price']  ?> $ , honoraires à la charge du vendeur.</p>
+                        <p>Prix : <?= $article['price']  ?> $ , honoraires à la charge du vendeur.</p>
 
                     </article>
             <?php

@@ -9,9 +9,9 @@ include '../inc/fonctions.php';
 $titleDb = getAnnonceById($id_annonce)['title'];
 $descriptionDb = getAnnonceById($id_annonce)['description'];
 $surfaceDb = getAnnonceById($id_annonce)['surface'];
- $typeDb = getAnnonceById($id_annonce)['type'];
- $roomDb = getAnnonceById($id_annonce)['room'];
- $priceDb = getAnnonceById($id_annonce)['price'];
+$typeDb = getAnnonceById($id_annonce)['type'];
+$roomDb = getAnnonceById($id_annonce)['room'];
+$priceDb = getAnnonceById($id_annonce)['price'];
 
 
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($imageName);
 
-  
+
 
     // Check file size
     if ($_FILES["image"]["size"] > 500000) {
@@ -37,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $image = "./uploads/" . $imageName;
     $description = cleanData($_POST['description']);
     $surface = cleanData($_POST['surface']);
-     $type = cleanData($_POST['type']);
+    $type = cleanData($_POST['type']);
     $price = cleanData($_POST['price']);
-     $room = cleanData($_POST['room']);
+    $room = cleanData($_POST['room']);
 
 
 
-    updateAnnonce($id_annonce, $title, $description, $surface,$type,$price,$room, $image);
+    updateAnnonce($id_annonce, $title, $description, $surface, $type, $price, $room, $image);
 
     header('Location: ./index.php');
     exit();

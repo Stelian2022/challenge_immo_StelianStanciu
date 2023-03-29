@@ -28,7 +28,7 @@
                 <input type="text" name="price" id="price" value="<?= $price ?>">
             </div><br><br>
             <div>
-                <label for="surface">Surface :</label>
+                <label for="surface">Surface m²:</label>
                 <input type="text" name="surface" id="surface" value="<?= $surface ?>">
             </div><br><br>
 

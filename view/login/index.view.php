@@ -17,7 +17,7 @@
             </div>
             <div>
                 <label for="password">Mot de passe</label>
-                <input type="password" name="password" id="password" >
+                <input type="password" name="password" id="password">
             </div>
             <div>
                 <input type="submit" value="Connexion">

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,19 +42,19 @@
                 </select>
             </div><br>
             <div>
-                <label for="surface">Surface :</label>
+                <label for="surface">Surface m²:</label>
                 <input type="text" name="surface" id="surface" value="<?= $surfaceDb ?>">
             </div><br><br>
 
             <div>
-            <div>
-            <label for="image">Image</label>
-                <input type="file" name="image" id="image">
-            </div>
-            <div>
-                <input type="submit" value="Valider">
-                <a href="./"><button type="button">Annuler</button></a>
-            </div>
+                <div>
+                    <label for="image">Image</label>
+                    <input type="file" name="image" id="image">
+                </div>
+                <div>
+                    <input type="submit" value="Valider">
+                    <a href="./"><button type="button">Annuler</button></a>
+                </div>
         </form>
     </main>
 </body>

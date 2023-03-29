@@ -5,13 +5,12 @@
 session_start();
 include '../inc/fonctions.php';
 
-$title = $type= $description = $price = $surface = $room = $image = '';
+$title = $description = $type = $price = $surface = $room = $image = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     $imageName = $_FILES['image']['name'];
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($imageName);
 
-   
 
     // Check file size
     if ($_FILES["image"]["size"] > 500000) {
@@ -25,29 +24,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
     }
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     $title = cleanData($_POST['title']);
-    $type = cleanData($_POST['type']);
     $image = "./uploads/" . $imageName;
     $description = cleanData($_POST['description']);
+    $type = cleanData($_POST['type']);
     $room = cleanData($_POST['room']);
     $surface = cleanData($_POST['surface']);
     $price = cleanData($_POST['price']);
 
     insertAnnonce($title, $description, $type, $price, $surface, $room, $image, $_SESSION['id_user']);
 
-    if ($_SESSION['login'] === 'redacteur') :
+    if ($_SESSION['login'] === 'user') :
         redirectUrl();
     else :
         //dd($_SESSION);
         redirectUrl('./adminImmo/');
     endif;
 endif;
-
-
-
-
-
-
-
-
 
 require '../view/adminImmo/ajout.view.php';

@@ -82,15 +82,15 @@ function suppAnnonceById(int $idAnnonce): bool
 }
 
 function insertAnnonce(
-   string $title, 
-   string $description, 
-   string $type, 
-   string $price, 
-   string $surface, 
-   string $room, 
-   string $image, 
-   int $user_id): int
-{
+   string $title,
+   string $description,
+   string $type,
+   string $price,
+   string $surface,
+   string $room,
+   string $image,
+   int $user_id,
+): int {
    require 'pdo.php';
    $requete = 'INSERT INTO annonce (
    title,
@@ -100,7 +100,7 @@ function insertAnnonce(
    surface,
    room,
    image,
-   user_id) VALUES (
+   user_id,) VALUES (
       :title, 
       :description, 
       :type, 
@@ -122,7 +122,7 @@ function insertAnnonce(
    return $conn->lastInsertId();
 }
 
-function updateAnnonce(int $id_annonce, string $title, string $description,string $surface, string $type, string $price, string $room, string $image): bool
+function updateAnnonce(int $id_annonce, string $title, string $description, string $surface, string $type, string $price, string $room, string $image): bool
 {
    require 'pdo.php';
 
@@ -152,8 +152,8 @@ function updateAnnonce(int $id_annonce, string $title, string $description,strin
    $resultat->bindValue(':description', $description, PDO::PARAM_STR);
    $resultat->bindValue(':type', $type, PDO::PARAM_STR);
    $resultat->bindValue(':price', $price, PDO::PARAM_STR);
-    $resultat->bindValue(':surface', $surface, PDO::PARAM_STR);
-    $resultat->bindValue(':room', $room, PDO::PARAM_STR);
+   $resultat->bindValue(':surface', $surface, PDO::PARAM_STR);
+   $resultat->bindValue(':room', $room, PDO::PARAM_STR);
    if ($image) :
       $resultat->bindValue(':image', $image, PDO::PARAM_STR);
    endif;
@@ -183,16 +183,16 @@ function findEmail(string $email): array|bool
 }
 
 function insertUser(
-string $first_name,
- string $last_name,
-  string $email,
+   string $first_name,
+   string $last_name,
+   string $email,
    string $password,
-    string $adress,
-     string $town, 
-      string $postal_code,
-       string $phone,
-        string $role): int
-{
+   string $adress,
+   string $town,
+   string $postal_code,
+   string $phone,
+   string $role
+): int {
    require 'pdo.php';
    $passwordHashe = password_hash($password, PASSWORD_DEFAULT);
 
